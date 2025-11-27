@@ -34,7 +34,7 @@ class DashRobotEnvCfg(DirectRLEnvCfg):
 
     # custom parameters/scales
     # - controllable joint
-    left_joint_names = [
+    joint_names = [
         "l_hip_yaw", 
         "l_hip_roll", 
         "l_hip_pitch", 
@@ -43,9 +43,7 @@ class DashRobotEnvCfg(DirectRLEnvCfg):
         "l_shoulder_pitch",
         "l_shoulder_roll",
         "l_shoulder_yaw",
-        "l_elbow_pitch"
-    ]
-    right_joint_names = [
+        "l_elbow_pitch",
         "r_hip_yaw",
         "r_hip_roll",
         "r_hip_pitch",
