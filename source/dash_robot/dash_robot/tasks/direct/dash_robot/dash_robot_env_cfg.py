@@ -19,12 +19,13 @@ class DashRobotEnvCfg(DirectRLEnvCfg):
     episode_length_s = 5.0
 
     # - spaces definition
-    action_space = 1
-    observation_space = 4
+    action_space = 18 # 18 joints
+    observation_space = 69
     state_space = 0
 
     # simulation
     sim: SimulationCfg = SimulationCfg(dt=1 / 120, render_interval=decimation)
+    
 
     # robot(s)
     robot_cfg: ArticulationCfg = DASH_CFG.replace(prim_path="/World/envs/env_.*/Robot")
@@ -34,7 +35,7 @@ class DashRobotEnvCfg(DirectRLEnvCfg):
 
     # custom parameters/scales
     # - controllable joint
-    joint_names = [
+    joint_names: list = [
         "l_hip_yaw", 
         "l_hip_roll", 
         "l_hip_pitch", 
@@ -57,6 +58,11 @@ class DashRobotEnvCfg(DirectRLEnvCfg):
     # - action scale
     action_scale = 100.0  # [N]
 
-    # - Reward scales, add velocity and joint movement rewards?
-    rew_scale_alive = 1.0
+    # Termination thresholds, example values for now (estimated)
+    min_torso_height: float = 0.7
+    min_torso_up: float = 0.2
+
+    # - Reward scales
+    rew_scale_alive = 2.0
     rew_scale_terminated = -2.0
+    rew_joint_vel = 0.1

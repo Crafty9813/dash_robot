@@ -26,7 +26,7 @@ DASH_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
         fix_base=False,
         replace_cylinders_with_capsules=True,
-        usd_path="/home/Repositories/dash_robot/source/assets/robot.usd",
+        usd_path="/home/Repositories/DashMimic/DASH_URDF/robot/robot.usd",
         
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
